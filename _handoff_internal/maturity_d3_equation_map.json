@@ -1,0 +1,32 @@
+{
+  "nodes": [
+    {"id":"Outcome X","type":"observable"},
+    {"id":"Exposure n","type":"observable"},
+    {"id":"Drift mu","type":"derived"},
+    {"id":"Volatility sigma","type":"derived"},
+    {"id":"Carrying capacity K","type":"latent+proxy"},
+    {"id":"Tangible K_tan","type":"proxy"},
+    {"id":"Intangible K_int","type":"proxy"},
+    {"id":"Signal quality S","type":"latent+proxy"},
+    {"id":"Integrity I","type":"latent+proxy"},
+    {"id":"Stress/Temp T","type":"proxy"},
+    {"id":"Capability C","type":"state"},
+    {"id":"Hazard H","type":"derived"},
+    {"id":"Collapse event","type":"event"}
+  ],
+  "links": [
+    {"source":"Outcome X","target":"Drift mu","label":"ΔX/Δn"},
+    {"source":"Exposure n","target":"Drift mu","label":"per unit"},
+    {"source":"Outcome X","target":"Volatility sigma","label":"Var(ΔX/Δn)"},
+    {"source":"Tangible K_tan","target":"Carrying capacity K","label":"sum"},
+    {"source":"Intangible K_int","target":"Carrying capacity K","label":"sum"},
+    {"source":"Carrying capacity K","target":"Capability C","label":"constraint"},
+    {"source":"Stress/Temp T","target":"Signal quality S","label":"degrades"},
+    {"source":"Volatility sigma","target":"Signal quality S","label":"variance load"},
+    {"source":"Integrity I","target":"Hazard H","label":"reduces"},
+    {"source":"Signal quality S","target":"Hazard H","label":"reduces"},
+    {"source":"Volatility sigma","target":"Hazard H","label":"increases"},
+    {"source":"Capability C","target":"Hazard H","label":"via C/K"},
+    {"source":"Hazard H","target":"Collapse event","label":"Pr(collapse)"}
+  ]
+}
