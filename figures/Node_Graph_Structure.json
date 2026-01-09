@@ -1,0 +1,19 @@
+{
+  "nodes": [
+    {"id": "Signal"},
+    {"id": "Harmony"},
+    {"id": "Conflict"},
+    {"id": "Restraint"},
+    {"id": "Extraction"},
+    {"id": "Fragility"},
+    {"id": "Maturity"}
+  ],
+  "links": [
+    {"source": "Harmony", "target": "Signal"},
+    {"source": "Conflict", "target": "Signal"},
+    {"source": "Signal", "target": "Maturity"},
+    {"source": "Fragility", "target": "Maturity"},
+    {"source": "Restraint", "target": "Maturity"},
+    {"source": "Extraction", "target": "Maturity"}
+  ]
+}

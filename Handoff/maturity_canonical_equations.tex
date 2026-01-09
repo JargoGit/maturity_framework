@@ -1,0 +1,105 @@
+
+% Canonical Equation Page (LaTeX) — Maturity Framework v0.1
+\section*{Maturity Framework: Canonical Equation Page (v0.1)}
+
+\subsection*{Core idea}
+A system is a stochastic process whose persistence depends on:
+(i) expected value (drift), (ii) volatility, (iii) carrying capacity (tangible + intangible), and
+(iv) integrity constraints that prevent short-term extraction from destroying long-term stability.
+
+\subsection*{Variables (time index $t$)}
+\begin{itemize}
+\item $X_t$: observable outcome state (wealth, output, performance).
+\item $\Delta X_t = X_t - X_{t-1}$: outcome increment.
+\item $n_t$: exposure / trials (hands, transactions, episodes).
+\item $\mu_t$: drift per unit exposure (edge).
+\item $\sigma_t$: volatility per unit exposure.
+\item $S_t$: signal quality / coherence (latent; proxied).
+\item $I_t$: integrity / restraint (latent; proxied).
+\item $K_t$: total carrying capacity (tangible + intangible).
+\item $C_t$: capability / throughput (what the system can do).
+\item $H_t$: hazard of collapse (probability rate of failure).
+\item $T_t$: “temperature” (noise / disorder / stress load).
+\end{itemize}
+
+\subsection*{Poker harness (directly measurable)}
+\[
+\mu_t \equiv \frac{\Delta \$}{\Delta n}
+\qquad\text{(e.g., dollars per hand)}
+\]
+\[
+\sigma_t \equiv \sqrt{\mathrm{Var}\!\left(\frac{\Delta \$}{\Delta n}\right)}
+\]
+\[
+\text{Risk-of-ruin proxy:}\quad
+\mathrm{RoR} \approx \exp\!\left(-\frac{2\,B\,\mu}{\sigma^2}\right)
+\]
+where $B$ is bankroll / buffer (system reserves).
+
+\subsection*{Carrying capacity with intangible capacity}
+Let carrying capacity be the sum of tangible and intangible components:
+\[
+K_t = K^{(tan)}_t + K^{(int)}_t
+\]
+Intangible capacity can be proxied by trust, legitimacy, morale, alignment, retention, etc.
+
+\subsection*{Capability growth constrained by carrying capacity}
+A simple constrained growth model:
+\[
+\frac{dC}{dt} = r C\left(1-\frac{C}{K_t}\right) - \lambda \, \Phi_t
+\]
+where:
+\begin{itemize}
+\item $r$ is intrinsic growth rate,
+\item $\Phi_t$ is friction/extraction cost (e.g., conflict, coercion, misalignment),
+\item $\lambda$ scales the damage of friction.
+\end{itemize}
+
+\subsection*{Signal quality dynamics}
+Model signal quality as drifting down under stress/volatility and up under integration:
+\[
+\frac{dS}{dt} = \alpha\,\mathrm{Integrate}_t - \beta\,T_t - \gamma\,\sigma_t
+\]
+
+\subsection*{Integrity as a stabilizer}
+Integrity acts like a constraint that prevents extracting short-run gains at long-run cost:
+\[
+\frac{dI}{dt} = \eta\,\mathrm{Restoration}_t - \rho\,\mathrm{Extraction}_t
+\]
+
+\subsection*{Collapse hazard}
+Define collapse hazard as a function of low signal and depleted capacity:
+\[
+H_t = \mathrm{sigmoid}\!\left(
+a_0 + a_1\,(C_t/K_t) + a_2\,\sigma_t - a_3\,S_t - a_4\,I_t
+\right)
+\]
+and the probability of collapse over a window can be approximated by:
+\[
+\Pr(\text{collapse in }[t,t+\Delta]) \approx 1-\exp\left(-\int_t^{t+\Delta} H_u \, du\right)
+\]
+
+\subsection*{Phase-change / tipping point condition}
+A tipping point occurs when the restoring forces cannot offset disorder:
+\[
+\alpha\,\mathrm{Integrate}_t \;<\; \beta\,T_t + \gamma\,\sigma_t
+\quad\Rightarrow\quad \frac{dS}{dt}<0
+\]
+\[
+\textbf{Signal collapse condition (candidate):}\quad S_t < 0 \quad \text{or}\quad H_t>\tau
+\]
+
+\subsection*{Boltzmann-style interpretation (probability of configurations)}
+Let $E(x)$ be the “energy” (cost) of a system configuration $x$ (misalignment, coercion, brittleness).
+Then:
+\[
+\Pr(X=x) \propto \exp\!\left(-\frac{E(x)}{T}\right)
+\]
+where $T$ is the effective temperature (noise/stress). Higher $T$ makes high-cost configurations more likely.
+
+\subsection*{Options / total return analogy}
+Total return decomposes into drift + convexity + cost:
+\[
+R \approx \mu\,\Delta t + \frac{1}{2}\Gamma\,\sigma^2\,\Delta t - \mathrm{costs}
+\]
+In system terms: convexity is the payoff for optionality (slack, reserves, modularity); costs are friction/extraction.

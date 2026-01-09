@@ -1,0 +1,23 @@
+# ---- RStudio / R ----
+.RData
+.Rhistory
+.Rproj.user/
+*.Rproj.user
+
+# ---- OS / Editor ----
+.DS_Store
+Thumbs.db
+
+# ---- Data (exclude by default) ----
+data/raw/
+data/processed/
+
+# ---- Outputs / figures (optional) ----
+# figures/
+
+# ---- Logs / temp ----
+*.log
+*.tmp
+# ---- Working drafts ----
+Handoff/*(1).*
+Handoff/*.docx
